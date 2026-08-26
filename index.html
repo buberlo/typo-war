@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A local two-player word shooter: type words, fire them, and survive the autocorrect engine."
+    />
+    <title>Word Shooter — Type. Fire. Get Autocorrected.</title>
+    <style>
+      :root {
+        --bg: #0e1120;
+        --panel: #161b30;
+        --accent: #ffd166;
+        --text: #e9edf8;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        height: 100%;
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 14px;
+        background: radial-gradient(circle at 50% 15%, #1c2347 0%, var(--bg) 65%);
+        color: var(--text);
+        font-family: "Segoe UI", "Trebuchet MS", Verdana, sans-serif;
+        overflow: hidden;
+      }
+
+      h1 {
+        font-size: 1.35rem;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--accent);
+      }
+
+      #game {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--panel);
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 14px 44px rgba(0, 0, 0, 0.5);
+      }
+
+      #game canvas {
+        display: block;
+      }
+
+      #game .loading {
+        padding: 24px 40px;
+        font-size: 0.95rem;
+        letter-spacing: 0.08em;
+        opacity: 0.7;
+      }
+
+      .hint {
+        max-width: 680px;
+        text-align: center;
+        font-size: 0.85rem;
+        line-height: 1.6;
+        opacity: 0.75;
+      }
+
+      kbd {
+        display: inline-block;
+        padding: 1px 6px;
+        border: 1px solid rgba(255, 255, 255, 0.28);
+        border-bottom-width: 2px;
+        border-radius: 4px;
+        background: rgba(255, 255, 255, 0.08);
+        font-family: inherit;
+        font-size: 0.78rem;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Word Shooter</h1>
+
+    <!-- Phaser mounts its canvas inside this element (see src/main.ts). -->
+    <div id="game">
+      <span class="loading">Loading dictionary…</span>
+    </div>
+
+    <p class="hint">
+      Local two-player on one keyboard: <strong>P1</strong> uses the left side,
+      <strong>P2</strong> uses the right side. Type a word and fire it —
+      nouns shield, verbs damage, punctuation crits, and the autocorrect
+      engine rewrites your worst shots mid-flight.
+    </
