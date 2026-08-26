@@ -88,4 +88,4 @@ export interface MemeCardData {
 
 export type PlayerInputEvent =
   | { type: 'fire'; playerIndex: number; word: string }
-  | { type: 'backspace'; player
+  | { type: 'backspace'; playerIndex: number };
